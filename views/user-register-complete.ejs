@@ -1,0 +1,63 @@
+
+
+<%- include('partials/header') -%>
+
+<h1 class="text-primary-color light-font-weight">Complete Registration</h1>
+
+<p class="lead">Congratulations! Your account has been confirmed and online access has been granted. Please enter your email and create a username and password to complete the registration process.</p>
+
+<blockquote class="blockquote text-center">
+  <p class="mt-5 mb-5">The user now has the chance to enter the email and password that they will use for logging in. The original temporary account will be renamed and enabled for access.</p>
+</blockquote>
+
+
+<div class="table-horizontal-container">
+
+  <form class="form-horizontal" method="POST"  action="/register">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Create Username & Password</legend>
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="username">Enter your email address</label>
+        <div class="col-md-4">
+          <input id="email" name="email" type="email" placeholder="" class="form-control input-md" required="">
+        </div>
+      </div>
+
+      <!-- Search input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="username">Choose a username</label>
+        <div class="col-md-4">
+          <input id="username" name="username" type="text" placeholder="" class="form-control input-md" required="">
+        </div>
+      </div>
+      
+      <!-- Search input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="password">Password</label>
+        <div class="col-md-4">
+          <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required="">
+        </div>
+      </div>
+      
+      <input type="hidden" name="id" id="id" value="<%= user_id %>" />
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="submit"></label>
+        <div class="col-md-4">
+          <button id="submit" name="submit" class="btn btn-outline-success">Register</button>
+        </div>
+      </div>
+      
+    </fieldset>
+  </form>
+    
+</div>
+
+
+<%- include('partials/footer') -%>
+
+

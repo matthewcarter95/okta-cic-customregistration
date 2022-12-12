@@ -1,0 +1,41 @@
+
+
+<%- include('partials/header') -%>
+
+<h3 class="text-primary-color light-font-weight">Multi-Factor Enrollment</h1>
+
+  <p class="lead">Please register at least one option for multi-factor authentication. If you do not register now, you will be prompted again on first login.</p>
+
+  <blockquote class="blockquote text-center">
+    <p class="mb-0">MFA enrollment can be handled as part of the sign-up process, during login, or in the user's profile. Once complete, the user can continue back to the main page to sign-in.</p>
+  </blockquote>
+
+<div class="table-horizontal-container">
+
+  <form class="form-horizontal" method="GET"  action="/">   
+    <fieldset>
+      <legend>Register your phone for SMS</legend>
+      <a href="#" onClick="MyWindow=window.open('<%=urlSMS%>','SMS','width=600,height=800'); return true;">SMS OTP</a>
+    </fieldset>
+    <fieldset>
+      <legend>Register your phone for Push</legend>
+      <a href="#" onClick="MyWindow=window.open('<%=urlPush%>','SMS','width=600,height=800'); return true;">Push Notifications</a>
+    </fieldset>
+    <fieldset>
+      <legend>Register Biometrics on this device</legend>
+      <a href="#" onClick="MyWindow=window.open('<%=urlWebAuthn%>','SMS','width=600,height=800'); return true;">Biometrics</a>
+    </fieldset>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="submit"></label>
+      <div class="col-md-4">
+        <button id="submit" name="submit" class="btn btn-outline-success">Continue</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<%- include('partials/footer') -%>
+
+
+
+

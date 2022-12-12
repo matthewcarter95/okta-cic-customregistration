@@ -1,0 +1,75 @@
+
+
+<%- include('partials/header') -%>
+<h1 class="text-primary-color light-font-weight">Online Account Registration</h1>
+
+<p class="lead">After opening your account, you should have received an email with your new Account Number. Please fill out the required information below to begin the process of opening your online account.</p>
+
+<blockquote class="blockquote text-center">
+  <p class="mt-5 mb-5">This is an example of a customized sign-up process.</p>
+</blockquote>
+
+<div class="table-horizontal-container">
+
+  <form class="form-horizontal" method="POST"  action="/create">
+    <fieldset>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="firstName">First Name</label>
+          <input id="firstName" name="firstName" type="text" class="form-control" placeholder="Enter first name here">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" name="lastName" type="text" class="form-control" placeholder="Enter last name here">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="phoneNumber">Phone Number</label>
+          <input id="phoneNumber" name="phoneNumber" type="tel" class="form-control" placeholder="Enter phone number here" value="212-555-1212">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="mothersMName">Mother's Maiden Name</label>
+          <input id="mothersMName" name="mothersMName" type="text" class="form-control" placeholder="Enter your mother's maiden name here" value="Johnson">
+        </div>
+        <div class="form-group col-md-6">
+          <label class="col-md-4 control-label" for="DOB">Date of Birth</label>
+          <input id="DOB" name="DOB" type="date" placeholder="Enter your birthday" class="form-control input-md" required="" value="1970-01-01">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label class="control-label" for="accountNumber">Account Number</label>
+          <input id="accountNumber" name="accountNumber" type="text" placeholder="Enter account number" class="form-control input-md" required="" value="">
+        </div>
+        <div class="form-group col-md-6">
+          <label class="control-label" for="subsidiary">Subsidiary</label>
+          <select class="form-control" id="subsidiary" name="subsidiary">
+            <option value="sub1.org">Subsidiary 1</option>
+            <option value="sub2.org">Subsidiary 2</option>
+            <option value="sub3.org">Subsidiary 3</option>
+          </select>
+        </div>      
+      </div>
+      <!-- Button -->
+      <div class="form-row">
+        <div class="form-group text-right">
+          <div class="text-right">
+            <label class="control-label" for="submit"></label>
+            <button id="submit" name="submit" class="btn btn-outline-success">Lookup Account to Enroll</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+  
+</div>
+
+
+
+
+<%- include('partials/footer') -%>
+
+

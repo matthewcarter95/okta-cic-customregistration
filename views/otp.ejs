@@ -1,0 +1,33 @@
+<%- include('partials/header') -%>
+
+    <label><%=title%></label>
+
+    <br/>
+    <pre class="block bg-gray-300 p-4 text-sm overflow-scroll"><%= otpResponse %></pre>
+
+    <div id="qrcode" style="width:175px; height:175px; margin-top:15px;"></div>
+
+    <form method="POST"  action="/otp">
+        <input type="text" name="otp" id="otp" />
+        <button type="submit">Complete</button>
+    </form>
+    
+<%- include('partials/footer') -%>
+
+<script type="text/javascript">
+    var response = <%-JSON.stringify(otpResponse)%>;
+    if(JSON.parse(response).barcode_uri)
+    {
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width: 128,
+    height: 128,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+    });
+    
+    qrcode.makeCode(JSON.parse(response).barcode_uri );
+}
+    
+    
+    </script>

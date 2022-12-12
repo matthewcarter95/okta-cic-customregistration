@@ -1,0 +1,18 @@
+<%- include('partials/header') -%>
+
+    <label><%=title%></label>
+
+    <br/>
+
+    <pre class="block bg-gray-300 p-4 text-sm overflow-scroll"><%= phoneEnrollResponse %></pre>
+
+    <div id="qrcode" style="width:175px; height:175px; margin-top:15px;"></div>
+
+    <form method="POST"  action="/phone">
+        <input type="text" name="code" id="code" />
+        <input type="hidden" name="phoneEnrollResponse" id="phoneEnrollResponse" value="<%= phoneEnrollResponse %>" />
+
+        <button type="submit">Complete Enrollment</button>
+    </form>
+    
+<%- include('partials/footer') -%>

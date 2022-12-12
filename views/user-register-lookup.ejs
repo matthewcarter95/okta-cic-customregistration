@@ -1,0 +1,29 @@
+<%- include('partials/header') -%>
+
+<h3 class="text-primary-color light-font-weight">Online Account Enrollment</h1>
+
+  <p class="lead">Please enter the Enrollment Code that you received via email.</p>
+
+  <blockquote class="blockquote text-center">
+    <p class="mt-5 mb-5">This is an example of a secured enrollment form to continue the registration process.</p>
+  </blockquote>
+
+<form class="form-horizontal" method="POST"  action="/register-user">
+  <fieldset>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="enrollToken">Enrollment Token</label>
+      <div class="col-md-4">
+        <input id="enrollToken" name="enrollToken" type="text" placeholder="" class="form-control input-md" required="">
+      </div>
+    </div>
+    <input type="hidden" name="authorizationCode" id="authorizationCode" value="<%= authorizationCode %>" />
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="submit"></label>
+      <div class="col-md-4">
+        <button id="submit" name="submit" class="btn btn-outline-success">Lookup & Continue</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+    
+<%- include('partials/footer') -%>

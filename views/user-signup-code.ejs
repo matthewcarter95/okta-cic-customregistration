@@ -1,0 +1,64 @@
+<%- include('partials/header') -%>
+
+<h3 class="text-primary-color light-font-weight">Online Account Registration Codes</h1>
+
+<blockquote class="blockquote text-center">
+  <p class="mt-5 mb-5">After creating the initial profile, an authorization code and enrollment token are generated. The authorization code would be part of a secure link sent to the user to continue registration, while the enrollment token can be sent separately via email or standard mail. A QR code could be provided to speed up the process.</p>
+</blockquote>
+
+    <div class="table-horizontal-container">
+
+        <form class="form-horizontal" method="POST"  action="/register-lookup">
+      
+            <fieldset>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Enrollment Token: </label>
+                    <div class="col-md-4">
+                        <label><%= enrollToken %></label>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" >Authorization Code:</label>
+                    <div class="col-md-4">
+                        <label><%= authorizationCode %></label>
+                      
+                    </div>
+                  </div>  
+          
+                  <div class="form-group">
+                    <div class="col-md-4">
+                        <div id="qrcode" style="width:175px; height:175px; margin-top:15px;"></div>
+                    </div>
+                  </div>
+
+                <input type="hidden" name="authorizationCode" id="authorizationCode" value="<%= authorizationCode %>" />
+                
+                <p>
+                  Please copy the Enrollment Token above before continuing.
+                </p>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="submit"></label>
+                    <div class="col-md-4">
+                      <button id="submit" name="submit" class="btn btn-outline-success">Continue</button>
+                    </div>
+                  </div>
+
+            </fieldset>
+        </form>
+
+        <script type="text/javascript" src="/js/qrcode.min.js"></script>
+
+        <script type="text/javascript">
+          var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width: 128,
+            height: 128,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+          });
+          qrcode.makeCode( "<%= authorizationCode %>" );
+        </script>
+
+<%- include('partials/footer') -%>

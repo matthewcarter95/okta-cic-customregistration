@@ -1,0 +1,42 @@
+
+
+<%- include('partials/header') -%>
+
+  <h1 class="text-4xl mb-4">MFA Factors for <%= user.nickname %></h1>
+
+  <% authenticators.forEach(function(authenticator){ %>
+    <div class="row">
+      <div class="col-sm-2">
+        <p class="text-uppercase font-weight-bold"><%- authenticator.oob_channel %></p>
+      </div>
+      <div class="col-sm-4">
+        <p><%- authenticator.name %></p>
+      </div>
+      <div class="col-sm-4">
+        <% if (authenticator.authenticator_type !== "recovery-code") { %>
+          <a  href="/delete/<%- authenticator.id %>" class="btn btn-danger" role="button">Delete Authenticator</a>
+          <% } %>
+
+        <% if (authenticator.authenticator_type === "recovery-code") { %>
+          <a  href="/recoveryCode" class="btn btn-danger" role="button">Delete current recovery code and generate a new one</a>
+        <% } %>
+      </div>
+    </div>
+  <%});%>
+ 
+  <h1 class="text-4xl mt-4 mb-4">Enroll additional factors</h1>
+
+  <div class="col-sm-6">
+    <div class="mt-2 mb-2">
+      <a href="/phone/sms/enroll" class="btn btn-primary" role="button">Enroll SMS</a>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="mt-2 mb-2">
+      <a href="/push/enroll" class="btn btn-primary" role="button">Enroll Push</a>
+    </div>
+  </div>
+
+<%- include('partials/footer') -%>
+
+    

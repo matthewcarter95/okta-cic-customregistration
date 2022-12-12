@@ -1,0 +1,28 @@
+<%- include('partials/header') -%>
+
+    <label><%=title%></label>
+
+    <br/>
+    <label>Enroll Push Response</label>
+    <pre class="block bg-gray-300 p-4 text-sm overflow-scroll"><%= oobEnrollResponse %></pre>
+    <div id="qrcode" style="width:175px; height:175px; margin-top:15px;"></div>
+    <form method="POST"  action="/push">
+        <input type="hidden" name="oobEnrollResponse" id="oobEnrollResponse" value="<%= oobEnrollResponse %>" />
+        <button type="submit">Complete Enrollment</button>
+    </form>
+    
+<%- include('partials/footer') -%>
+
+<script type="text/javascript" src="/js/qrcode.min.js"></script>
+
+<script type="text/javascript">
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width: 128,
+    height: 128,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+    });
+    var response = <%-JSON.stringify(oobEnrollResponse)%>;
+    qrcode.makeCode(JSON.parse(response).barcode_uri );
+    </script>

@@ -1,0 +1,14 @@
+<%- include('partials/header') -%>
+
+    <label><%=title%></label>
+
+    <br/>
+
+    <div id="qrcode" style="width:175px; height:175px; margin-top:15px;"></div>
+
+    <form method="POST"  action="/phone/sms/response">
+        <input type="tel" name="phone" id="phone" />
+        <button type="submit">Submit Phone Number</button>
+    </form>
+    
+<%- include('partials/footer') -%>

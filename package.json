@@ -1,0 +1,22 @@
+{
+  "name": "smbc-demo-app",
+  "scripts": {
+    "watch": "nodemon server",
+    "start": "node server"
+  },
+  "dependencies": {
+    "auth0": "^2.42.0",
+    "axios": "^0.26.1",
+    "connect-flash": "^0.1.1",
+    "debug": "~2.6.9",
+    "dotenv": "^6.1.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-openid-connect": "^2.8.0",
+    "http-errors": "~1.8.1",
+    "morgan": "~1.10.0",
+    "nodemon": "^2.0.19",
+    "request-promise-native": "^1.0.9",
+    "uuidv4": "^6.2.13"
+  }
+}
